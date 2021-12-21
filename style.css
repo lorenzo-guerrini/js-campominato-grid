@@ -1,3 +1,4 @@
+/* Generali */
 * {
     margin: 0;
     padding: 0;
@@ -8,24 +9,47 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Header */
+/* sx */
 header {
     display: flex;
     height: 45px;
     justify-content: space-between;
 }
 
-#logo {
+header section {
     display: flex;
+    align-items: center;
 }
 
 #logo img{
     width: 25px;
+    height: 25px;
+    margin: 10px;
+}
+/* dx */
+#options {
+    font-size: 11px;
+    margin-right: 10px;
 }
 
-.difficulty-mode {
+#difficulty-mode {
     display: flex;
+    align-items: center;
 }
 
+#difficulty-selector {
+    font-size: 11px;
+    margin: 0 3px;
+    padding-right: 40px;
+}
+
+#play {
+    font-size: 11px;
+    padding: 0 20px;
+}
+
+/* Main */
 main {
     height: calc(100vh - 75px);
     background-color: #7FFFD4;
@@ -85,6 +109,11 @@ main {
     transform: translate(-50%, -50%);
 }
 
+/* Footer */
 footer {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 11px;
     height: 30px;
 }
