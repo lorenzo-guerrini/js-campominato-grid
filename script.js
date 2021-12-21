@@ -29,33 +29,35 @@ function animationManager(grid) {
 //Funzione che gestisce le difficoltà
 function difficultyManager(grid, difficulty) {
     if (difficulty == 1) {
-        gridGenerator(grid, 1, 100); //Easy
+        gridGenerator(grid, 100, 1); //Easy
     } else if (difficulty == 2) {
-        gridGenerator(grid, 1, 81); //Medium
+        gridGenerator(grid, 81, 2); //Medium
     } else {
-        gridGenerator(grid, 1, 49); //Hard
+        gridGenerator(grid, 49, 3); //Hard
     }
 }
 
 //Genera la griglia con ciascun elemento
-function gridGenerator(grid, min, max) {
+function gridGenerator(grid, gridNumber, difficulty) {
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 1; i <= gridNumber; i++) {
         //Crea gridSquare
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
-        let randomNumber = randomNumberGen(min, max);
-        gridSquare.innerHTML = '<div class="grid-number">' + randomNumber + '</div>';
+        if (difficulty == 1) {
+            gridSquare.classList.add("easy");
+        } else if (difficulty == 2){
+            gridSquare.classList.add("medium");
+        } else {
+            gridSquare.classList.add("hard")
+        }
+        
+        gridSquare.innerHTML = '<div class="grid-number">' + i + '</div>';
 
         //Aggiunge eventListener al click e fa append all'elemento in input
         gridSquare.addEventListener("click", addActiveClass);
         grid.append(gridSquare);
     }
-}
-
-//Funzione che genera numeri casuali
-function randomNumberGen(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 //Aggiunge la classe "active" ad un elemento

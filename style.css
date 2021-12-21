@@ -90,11 +90,24 @@ main {
 }
 
 .grid-square {
-    width: 10%;
-    height: 10%;
     border: 1px solid black;
     position: relative;
     cursor: pointer;
+}
+
+.grid-square.easy {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.grid-square.medium {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.grid-square.hard {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
 }
 
 .grid-square.active {
