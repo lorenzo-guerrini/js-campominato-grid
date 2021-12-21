@@ -46,6 +46,11 @@ main #grid {
     height: 10%;
     border: 1px solid black;
     position: relative;
+    cursor: pointer;
+}
+
+.grid-square.active {
+    background-color: #6495ED;
 }
 
 .grid-number {
