@@ -19,7 +19,8 @@ function gridGenerator(element) {
         //Crea gridSquare
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
-        gridSquare.innerHTML = '<div class="grid-number">1</div>';
+        let randomNumber = randomNumberGen(1, 100)
+        gridSquare.innerHTML = '<div class="grid-number">' + randomNumber +'</div>';
 
         //Aggiunge eventListener al click e fa append all'elemento in input
         gridSquare.addEventListener("click", addActiveClass);
@@ -27,6 +28,12 @@ function gridGenerator(element) {
     }
 
 }
+
+//Funzione che genera numeri casuali
+function randomNumberGen(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 
 //Aggiunge la classe "active" ad un elemento
 function addActiveClass() {
@@ -39,5 +46,3 @@ function addActiveClass() {
 
 // Funzione che gestisce le difficoltà
 // Easy? Genera questi elementi random. Hard? Genera questi altri
-
-//Funzione che genera numeri casuali
