@@ -22,7 +22,6 @@ function start() {
 }
 
 //Gestore delle animazioni
-//todo: L'animazione si ripete ad ogni click di play
 function animationManager(grid) {
     grid.animate([
         { transform: 'rotate(0deg)' },
