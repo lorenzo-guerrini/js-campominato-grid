@@ -7,7 +7,6 @@ let playCounter = 0;
 function start() {
     //Variabili griglia e difficulty selector
     const grid = document.getElementById("grid");
-    grid.innerHTML = "";
     const difficultySelector = document.getElementById("difficulty-selector");
     const difficulty = difficultySelector.value;
 
@@ -38,8 +37,10 @@ function difficultyManager(grid, difficulty) {
 
 //Genera la griglia con ciascun elemento
 function gridGenerator(grid, gridTotal, className) {
-    for (let i = 1; i <= gridTotal; i++) {
+    //Svuota la griglia
+    grid.innerHTML = "";
 
+    for (let i = 1; i <= gridTotal; i++) {
         //Crea gridSquare
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
