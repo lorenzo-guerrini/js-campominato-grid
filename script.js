@@ -44,7 +44,12 @@ function gridGenerator(grid, gridTotal, className) {
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
         gridSquare.classList.add(className);
-        gridSquare.innerHTML = '<div class="grid-number">' + i + '</div>';
+
+        //Inserisce numero dentro gridSquare
+        let gridSquareNumber = document.createElement("div");
+        gridSquareNumber.classList.add("grid-number");
+        gridSquareNumber.innerHTML = i;
+        gridSquare.append(gridSquareNumber);
 
         //Aggiunge eventListener al click e fa append all'elemento in input
         gridSquare.addEventListener("click", addActiveClass);
