@@ -68,7 +68,7 @@ main {
     position: relative;
 }
 
-#grid.started {
+[class*="started-"] {
     animation: startAnimation 1s;
     border: none;
 }

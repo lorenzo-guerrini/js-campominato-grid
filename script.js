@@ -11,18 +11,19 @@ function start() {
     const difficulty = difficultySelector.value;
 
     //Funzioni da eseguire
-    animationManager(grid);
+    animationManager(grid, playCounter);
     difficultyManager(grid, difficulty);
 
     playCounter++;
 }
 
 //Gestore delle animazioni
-function animationManager(grid) {
-    if (playCounter == 0) {
-        grid.classList.add("started");
-    }
+//todo: L'animazione si ripete ad ogni click di play
+function animationManager(grid, playCounter) {
+    grid.className = "";
+    grid.classList.add("started-" + playCounter);
 }
+
 //Gestore dlle difficoltà
 function difficultyManager(grid, difficulty) {
     if (difficulty == 1) {
