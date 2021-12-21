@@ -1,7 +1,9 @@
+//Pulsante Play e contatore partite
 const play = document.getElementById("play");
 play.addEventListener("click", start);
+let playCounter = 0;
 
-//funzione start da dare al bottone
+//funzione start
 function start() {
 
     //Variabili griglia e difficulty selector
@@ -10,18 +12,28 @@ function start() {
     const difficultySelector = document.getElementById("difficulty-selector");
     const difficulty = difficultySelector.value;
 
-    //funzioni da eseguire
+    //Funzioni da eseguire
+    animationManager(grid);
     difficultyManager(grid, difficulty);
+
+    playCounter++;
 }
 
-// Funzione che gestisce le difficoltà
+//Funzione che gestisce le animazioni
+function animationManager(grid) {
+    if (playCounter == 0) {
+        grid.classList.add("started");
+    }
+}
+
+//Funzione che gestisce le difficoltà
 function difficultyManager(grid, difficulty) {
     if (difficulty == 1) {
-        gridGenerator(grid, 1, 100) //Easy
+        gridGenerator(grid, 1, 100); //Easy
     } else if (difficulty == 2) {
-        gridGenerator(grid, 1, 81) //Medium
+        gridGenerator(grid, 1, 81); //Medium
     } else {
-        gridGenerator(grid, 1, 49) //Hard
+        gridGenerator(grid, 1, 49); //Hard
     }
 }
 
@@ -32,14 +44,13 @@ function gridGenerator(grid, min, max) {
         //Crea gridSquare
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
-        let randomNumber = randomNumberGen(min, max)
+        let randomNumber = randomNumberGen(min, max);
         gridSquare.innerHTML = '<div class="grid-number">' + randomNumber + '</div>';
 
         //Aggiunge eventListener al click e fa append all'elemento in input
         gridSquare.addEventListener("click", addActiveClass);
         grid.append(gridSquare);
     }
-
 }
 
 //Funzione che genera numeri casuali
