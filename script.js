@@ -3,9 +3,8 @@ const play = document.getElementById("play");
 play.addEventListener("click", start);
 let playCounter = 0;
 
-//funzione start
+//Start
 function start() {
-
     //Variabili griglia e difficulty selector
     const grid = document.getElementById("grid");
     grid.innerHTML = "";
@@ -19,14 +18,14 @@ function start() {
     playCounter++;
 }
 
-//Funzione che gestisce le animazioni
+//Gestore delle animazioni
 function animationManager(grid) {
     if (playCounter == 0) {
         grid.classList.add("started");
     }
 }
 
-//Funzione che gestisce le difficoltà
+//Gestore dlle difficoltà
 function difficultyManager(grid, difficulty) {
     if (difficulty == 1) {
         gridGenerator(grid, 100, "easy"); //Easy
@@ -38,18 +37,19 @@ function difficultyManager(grid, difficulty) {
 }
 
 //Genera la griglia con ciascun elemento
-function gridGenerator(grid, gridNumber, className) {
+function gridGenerator(grid, gridTotal, className) {
+    for (let i = 1; i <= gridTotal; i++) {
 
-    for (let i = 1; i <= gridNumber; i++) {
         //Crea gridSquare
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
         gridSquare.classList.add(className);
-        
         gridSquare.innerHTML = '<div class="grid-number">' + i + '</div>';
 
         //Aggiunge eventListener al click e fa append all'elemento in input
         gridSquare.addEventListener("click", addActiveClass);
+
+        //Aggiunge gridSquare alla griglia
         grid.append(gridSquare);
     }
 }
