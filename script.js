@@ -29,28 +29,22 @@ function animationManager(grid) {
 //Funzione che gestisce le difficoltà
 function difficultyManager(grid, difficulty) {
     if (difficulty == 1) {
-        gridGenerator(grid, 100, 1); //Easy
+        gridGenerator(grid, 100, "easy"); //Easy
     } else if (difficulty == 2) {
-        gridGenerator(grid, 81, 2); //Medium
+        gridGenerator(grid, 81, "medium"); //Medium
     } else {
-        gridGenerator(grid, 49, 3); //Hard
+        gridGenerator(grid, 49, "hard"); //Hard
     }
 }
 
 //Genera la griglia con ciascun elemento
-function gridGenerator(grid, gridNumber, difficulty) {
+function gridGenerator(grid, gridNumber, className) {
 
     for (let i = 1; i <= gridNumber; i++) {
         //Crea gridSquare
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
-        if (difficulty == 1) {
-            gridSquare.classList.add("easy");
-        } else if (difficulty == 2){
-            gridSquare.classList.add("medium");
-        } else {
-            gridSquare.classList.add("hard")
-        }
+        gridSquare.classList.add(className);
         
         gridSquare.innerHTML = '<div class="grid-number">' + i + '</div>';
 

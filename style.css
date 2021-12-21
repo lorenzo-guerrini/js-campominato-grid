@@ -52,6 +52,7 @@ header section {
 /* Main */
 main {
     height: calc(100vh - 75px);
+    min-height: 280px;
     background-color: #7FFFD4;
     display: flex;
     justify-content: center;
