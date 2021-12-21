@@ -7,19 +7,32 @@ function start() {
     //Variabili griglia e bottone
     const grid = document.getElementById("grid");
     const play = document.getElementById("play");
+    const difficulty = play.value;
 
     //funzioni da eseguire
-    gridGenerator(grid);
+    difficultyManager(grid, difficulty);
+}
+
+// Funzione che gestisce le difficoltà
+function difficultyManager(element, value) {
+    if (value == 1) {
+        gridGenerator(element, 1, 100) //Easy
+    } else if (value == 2) {
+        gridGenerator(element, 1, 81) //Medium
+    } else {
+        gridGenerator(element, 1, 49) //Hard
+    }
+    
 }
 
 //Genera la griglia con ciascun elemento
-function gridGenerator(element) {
+function gridGenerator(element, min, max) {
 
     for (let i = 0; i < 100; i++) {
         //Crea gridSquare
         let gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
-        let randomNumber = randomNumberGen(1, 100)
+        let randomNumber = randomNumberGen(min, max)
         gridSquare.innerHTML = '<div class="grid-number">' + randomNumber +'</div>';
 
         //Aggiunge eventListener al click e fa append all'elemento in input
@@ -39,10 +52,3 @@ function randomNumberGen(min, max) {
 function addActiveClass() {
     this.classList.add("active");
 }
-
-//Funzione per cambiare colore al gridSquare quando cliccato
-
-
-
-// Funzione che gestisce le difficoltà
-// Easy? Genera questi elementi random. Hard? Genera questi altri
