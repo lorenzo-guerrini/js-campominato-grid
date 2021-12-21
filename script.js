@@ -10,8 +10,12 @@ function start() {
     const difficultySelector = document.getElementById("difficulty-selector");
     const difficulty = difficultySelector.value;
 
+    if (playCounter == 0) {
+        grid.classList.add("started");
+    }
+
     //Funzioni da eseguire
-    animationManager(grid, playCounter);
+    animationManager(grid);
     difficultyManager(grid, difficulty);
 
     playCounter++;
@@ -19,9 +23,13 @@ function start() {
 
 //Gestore delle animazioni
 //todo: L'animazione si ripete ad ogni click di play
-function animationManager(grid, playCounter) {
-    grid.className = "";
-    grid.classList.add("started-" + playCounter);
+function animationManager(grid) {
+    grid.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(360deg)' }
+    ], {
+        duration: 500
+    });
 }
 
 //Gestore dlle difficoltà

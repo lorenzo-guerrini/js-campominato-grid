@@ -68,18 +68,8 @@ main {
     position: relative;
 }
 
-[class*="started-"] {
-    animation: startAnimation 1s;
-    border: none;
-}
-
-@keyframes startAnimation {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.started {
+    border: none !important;
 }
 
 #info {
