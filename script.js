@@ -51,7 +51,7 @@ function gridGenerator(grid, gridTotal, className) {
         //Genera gridSquare
         let gridSquare = gridSquareGenerator(className, i);
 
-        //Aggiunge eventListener al click e fa append all'elemento in input
+        //Aggiunge eventListener al click
         gridSquare.addEventListener("click", addActiveClass);
 
         //Aggiunge gridSquare alla griglia
