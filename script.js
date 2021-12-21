@@ -23,7 +23,6 @@ function animationManager(grid) {
         grid.classList.add("started");
     }
 }
-
 //Gestore dlle difficoltà
 function difficultyManager(grid, difficulty) {
     if (difficulty == 1) {
@@ -41,16 +40,8 @@ function gridGenerator(grid, gridTotal, className) {
     grid.innerHTML = "";
 
     for (let i = 1; i <= gridTotal; i++) {
-        //Crea gridSquare
-        let gridSquare = document.createElement("div");
-        gridSquare.classList.add("grid-square");
-        gridSquare.classList.add(className);
-
-        //Inserisce numero dentro gridSquare
-        let gridSquareNumber = document.createElement("div");
-        gridSquareNumber.classList.add("grid-number");
-        gridSquareNumber.innerHTML = i;
-        gridSquare.append(gridSquareNumber);
+        //Genera gridSquare
+        let gridSquare = gridSquareGenerator(className, i);
 
         //Aggiunge eventListener al click e fa append all'elemento in input
         gridSquare.addEventListener("click", addActiveClass);
@@ -58,6 +49,22 @@ function gridGenerator(grid, gridTotal, className) {
         //Aggiunge gridSquare alla griglia
         grid.append(gridSquare);
     }
+}
+
+//Generatore di gridSquare
+function gridSquareGenerator(className, i) {
+    //Crea gridSquare
+    let gridSquare = document.createElement("div");
+    gridSquare.classList.add("grid-square");
+    gridSquare.classList.add(className);
+
+    //Inserisce numero dentro gridSquare
+    let gridSquareNumber = document.createElement("div");
+    gridSquareNumber.classList.add("grid-number");
+    gridSquareNumber.innerHTML = i;
+    gridSquare.append(gridSquareNumber);
+
+    return gridSquare;
 }
 
 //Aggiunge la classe "active" ad un elemento
